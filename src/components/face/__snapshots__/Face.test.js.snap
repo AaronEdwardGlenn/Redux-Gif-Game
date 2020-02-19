@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Face component renders Face 1`] = `
+<Fragment>
+  <p
+    className="Face"
+  >
+    <figure>
+      <img />
+      <figcaption />
+    </figure>
+  </p>
+</Fragment>
+`;
