@@ -23,4 +23,24 @@ export const getGif = state => {
   return  { status: 'Press the buttons, Change your mood!', img: 'https://media.giphy.com/media/139lMwJ9ow7bKE/giphy.gif' };
 };
 
+export const getCoffees = state => {
+  return state.coffees;
+};
+
+export const getSnacks = state => {
+  return state.snacks;
+};
+
+export const getNaps = state => {
+  return state.naps;
+};
+
+export const getStudies = state => {
+  return state.studies;
+};
+
+export const getCraziez = state => {
+  return state.craziez;
+};
+
 
