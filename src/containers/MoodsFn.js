@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Face from '../components/face/Face';
-import { drinkCoffee, eatSnack, takeNap, study, craziez } from '../actions/allActions';
+import { drink_coffee, eat_snack, take_nap, study, go_crazy } from '../actions/allActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSnacks, getNaps, getCoffees, getStudies, getCraziez } from '../selectors/gifSelector';
 
@@ -26,17 +26,17 @@ const MoodsFn = () => {
   return (
     <>
       {stopwatch > 0 && 
-      <div>
+      <p>
         <div>
-          <button onClick={() => dispatch(drinkCoffee())}>coffee - {coffees}</button>
-          <button onClick={() => dispatch(eatSnack())}>snacks - {snacks}</button>
-          <button onClick={() => dispatch(takeNap())}>naps - {naps}</button>
+          <button onClick={() => dispatch(drink_coffee())}>coffee - {coffees}</button>
+          <button onClick={() => dispatch(eat_snack())}>snacks - {snacks}</button>
+          <button onClick={() => dispatch(take_nap())}>naps - {naps}</button>
           <button onClick={() => dispatch(study())}>studies - {studies}</button>
-          <button onClick={() => dispatch(crazy())}>crazy - {craziez}</button>
+          <button onClick={() => dispatch(go_crazy())}>crazy - {crazy}</button>
         </div>
         <Face />
         <h1>COUNTDOWN: {stopwatch}</h1>
-      </div>
+      </p>
       }
       {stopwatch <= 0 && 
       <div>

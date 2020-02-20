@@ -1,4 +1,4 @@
-import { eat_snack, drink_coffee, take_nap, study, crazy, DRINK_COFFEE, EAT_SNACK, TAKE_NAP, STUDY, CRAZY } from './allActions'; 
+import { eat_snack, drink_coffee, take_nap, study, go_crazy, DRINK_COFFEE, EAT_SNACK, TAKE_NAP, STUDY, CRAZY, resetAll, RESET_ALL } from './allActions'; 
 
 
 describe('face actions', () => {
@@ -29,11 +29,16 @@ describe('face actions', () => {
       type: STUDY
     });
   });
+});
 
-  it('creates a CRAZY action', () => {
-    const action = crazy();
-    expect(action).toEqual({
-      type: CRAZY
-    });
+it('creates a CRAZY action', () => {
+  const action = go_crazy();
+  expect(action).toEqual({
+    type: CRAZY
   });
+});
+
+it('can create a RESET_ALL action', () => {
+  const action = resetAll();
+  expect(action).toEqual({ type: RESET_ALL });
 });

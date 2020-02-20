@@ -19,7 +19,7 @@ export const study = () => ({
 });
 
 export const CRAZY = 'CRAZY';
-export const crazy = () => ({
+export const go_crazy = () => ({
   type: CRAZY
 });
 
@@ -28,4 +28,4 @@ export const resetAll = () => ({
   type: RESET_ALL
 });
 
-export const allOfTheActions = [eat_snack, drink_coffee, take_nap, study, crazy];
+
