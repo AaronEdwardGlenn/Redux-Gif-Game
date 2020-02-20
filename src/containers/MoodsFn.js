@@ -1,60 +1,54 @@
-import React, { useReducer } from 'react';
-import Controls from '../components/controls/Controls';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Face from '../components/face/Face';
-import { allOfTheActions } from '../actions/allActions';
-import { getGif } from '../selectors/gifSelector';
-import countReducer from '../reducers/countReducer';
+import { drinkCoffee, eatSnack, takeNap, study, craziez } from '../actions/allActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSnacks, getNaps, getCoffees, getStudies, getCraziez } from '../selectors/gifSelector';
+
 
 const MoodsFn = () => {
-  const [state, dispatch] = useReducer(countReducer, {
-    coffees: 0,
-    snacks: 0,
-    naps: 0,
-    studies: 0,
-    craziez: 0
-  }); 
+  const [stopwatch, setStopwatch] = useState(10);
 
-  let moodStatus = getGif(state);  
+  
+  const dispatch = useDispatch();
+  const coffees = useSelector(getCoffees);
+  const snacks = useSelector(getSnacks);
+  const naps = useSelector(getNaps);
+  const studies = useSelector(getStudies);
+  const crazy = useSelector(getCraziez);
 
-  let [eat_snack, drink_coffee, take_nap, study, crazy] = allOfTheActions;
-
-  let dispatchObj = [
-    {
-      text: 'Drink Coffee', 
-      function: () => dispatch(drink_coffee()),
-      count: state.coffees 
-    },
-    {
-      text: 'Eat Snack', 
-      function: () => dispatch(eat_snack()),
-      count: state.snacks 
-    },
-    {
-      text: 'Take that Nap', 
-      function: () => dispatch(take_nap()),
-      count: state.naps 
-    },
-    {
-      text: 'Study Sesh', 
-      function: () => dispatch(study()),
-      count: state.studies 
-    },
-    {
-      text: 'Go Cray Cray', 
-      function: () => dispatch(crazy()),
-      count: state.craziez 
-    }
-  ];
+  useEffect(() => {
+    setInterval(() => {
+      setStopwatch(stopwatch => stopwatch - 1);
+    }, 1000);
+  }, []);
 
   return (
     <>
-
-      <Controls dispatch={dispatchObj} />
-      <Face emoji={moodStatus} />
-
+      {stopwatch > 0 && 
+      <div>
+        <div>
+          <button onClick={() => dispatch(drinkCoffee())}>coffee - {coffees}</button>
+          <button onClick={() => dispatch(eatSnack())}>snacks - {snacks}</button>
+          <button onClick={() => dispatch(takeNap())}>naps - {naps}</button>
+          <button onClick={() => dispatch(study())}>studies - {studies}</button>
+          <button onClick={() => dispatch(crazy())}>crazy - {craziez}</button>
+        </div>
+        <Face />
+        <h1>COUNTDOWN: {stopwatch}</h1>
+      </div>
+      }
+      {stopwatch <= 0 && 
+      <div>
+        
+        <Face />
+        <Link to='/'>
+          <button>PLAY AGAIN!!!!!</button>
+        </Link>
+      </div>
+      }
     </>
   );
 };
 
-export default MoodsFn; 
-
+export default MoodsFn;
