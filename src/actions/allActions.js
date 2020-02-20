@@ -23,4 +23,9 @@ export const crazy = () => ({
   type: CRAZY
 });
 
+export const RESET_ALL = 'RESET_ALL';
+export const resetAll = () => ({
+  type: RESET_ALL
+});
+
 export const allOfTheActions = [eat_snack, drink_coffee, take_nap, study, crazy];

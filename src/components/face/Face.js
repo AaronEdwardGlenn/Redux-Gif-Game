@@ -8,6 +8,7 @@ const Face = () => {
 
   return (
     <p className={styles.Face}>{gif}</p>
+
   );
 
 };
