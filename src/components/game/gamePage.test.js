@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GamePage from './GamePage';
+import GamePage from './gamePage';
 import { Provider } from 'react-redux';
 import store from '../../../store';
 
