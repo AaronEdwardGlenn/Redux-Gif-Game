@@ -26,7 +26,7 @@ const MoodsFn = () => {
   return (
     <>
       {stopwatch > 0 && 
-      <p>
+      <main>
         <div>
           <button onClick={() => dispatch(drink_coffee())}>coffee - {coffees}</button>
           <button onClick={() => dispatch(eat_snack())}>snacks - {snacks}</button>
@@ -36,7 +36,7 @@ const MoodsFn = () => {
         </div>
         <Face />
         <h1>COUNTDOWN: {stopwatch}</h1>
-      </p>
+      </main>
       }
       {stopwatch <= 0 && 
       <div>

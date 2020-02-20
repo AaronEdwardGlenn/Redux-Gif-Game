@@ -4,10 +4,13 @@ import { useSelector } from 'react-redux';
 import { getGif } from '../../selectors/gifSelector';
 
 const Face = () => {
-  const gif = useSelector(getGif);
+  const { status, img } = useSelector(getGif);
 
   return (
-    <p className={styles.Face}>{gif}</p>
+    <div className={styles.Face}>
+      <div>{status}</div>
+      <img src={img}/>
+    </div>
 
   );
 
