@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Face component renders Face 1`] = `
+exports[`G component matches snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -30,8 +30,6 @@ exports[`Face component renders Face 1`] = `
     }
   }
 >
-  <Face
-    emoji="😀"
-  />
+  <GamePage />
 </ContextProvider>
 `;

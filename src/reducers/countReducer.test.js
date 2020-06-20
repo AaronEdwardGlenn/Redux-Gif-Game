@@ -1,5 +1,7 @@
 import countReducer from './countReducer';
-import { drink_coffee, eat_snack, take_nap, study, crazy } from '../actions/allActions';
+import { drink_coffee, eat_snack, take_nap, study, go_crazy, resetAll } from '../actions/allActions';
+
+
 
 describe('countReducer functionality', () => {
   it('nada occours when actions === false', () => {
@@ -37,9 +39,16 @@ describe('countReducer functionality', () => {
   });
 
   it('CRAZY functionality', () => {
-    const action = crazy();
+    const action = go_crazy();
     const initialState = { craziez: 1 };
     const newState = countReducer(initialState, action);
     expect(newState).toEqual({ craziez: 2 });
+  });
+
+  it('handles a resetAll action', () => {
+    const action = resetAll();
+    const initialState = { coffees: 4, snacks: 3, naps: 2, studies: 1 };
+    const newState = countReducer(initialState, action);
+    expect(newState).toEqual({ coffees: 0, snacks: 0, naps: 0, studies: 0, craziez: 0 });
   });
 });
